@@ -11,7 +11,7 @@ public class Test {
 		//이 사람이 태어난 계절을 알려줘
 		//봄 345 여름 678 가을 91011 겨울 1212
 		//성별 : 1번3번5번 남자, 2번4번6번 여자
-		//2000년대 3번 4번
+		//2000년대 3번 4번입니다.
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("주민번호");
