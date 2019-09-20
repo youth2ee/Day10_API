@@ -73,7 +73,6 @@ public class Test {
 			System.out.println("잘못입력하셨습니다.");
 		}
 
-
 	}
 
 }
