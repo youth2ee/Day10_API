@@ -14,64 +14,67 @@ public class Test2 {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("주민번호");
 		String num = sc.next();
+		//920720-2222222
+		
 		int[] count = new int[num.length()];
-
-		char a='a';
-		int m=0;
-		int j=2;
-		int k=2;
+		
 		int sum=0;
-	
-
-		for(int i=0;i<8;i++) {
-
-			a = num.charAt(i);
-			m = Integer.parseInt(String.valueOf(a));
-
-			count[i]=m*j;
-			j++;
+		int idx=2;
+		
+		//문자 하나씩 받기
+		
+		/*
+		1. split
+		String [] nums = num.split(""); //자르는 기준이 없다.
+		for(int i=0;i<nums.length;i++){}
+		
+		2. substring
+		: 꺼내면 새로운 문자열
+		for(int i =0; i<num.length();i++){
+			String n1 = num.substring(i,i+1);
+			int n= Integer.parseInt(n1);
+			//parse는 string타입을 받는다.
 		}
 
-		for(int i=8;i<12;i++) {
-
-			a = num.charAt(i);
-			m = Integer.parseInt(String.valueOf(a));
-
-			count[i]=m*k;
-			k++;	
-		}
-
-	
-		for(int i=0; i<count.length;i++) {
-			sum = sum + count[i];
-		}
-		
-		int plus = sum%11;
-		plus = 11 - plus;
-		
-		a = num.charAt(12);
-		m = Integer.parseInt(String.valueOf(a));
-		
-		boolean check = true;
-
-		if(plus<10) {
-			if(plus == m) {
-			}else {
-				check=false;
+		3. chatAt */
+		for(int i=0;i<num.length()-1;i++){ //마지막번호는 빼야한다.
+			
+			if(i==6) {
+				continue; //증감식으로 간다.
 			}
-		}else if (plus>=10) {
-			plus = plus%10;
-			if(plus == m) {
-			}else {
-				check=false;
+			
+			char a = num.charAt(i);
+			//string을 하나씩 받아서 char타입으로 하나씩 받는다.
+			//문자를 문자열로 바꿔야 한다.(char -> string)
+			//String 클래스나 Character 클래스를 확인
+			String s = String.valueOf(a); //(char -> string)
+			int n = Integer.parseInt(s); //(string -> int)
+			
+			sum = sum + n*idx;
+			idx++;
+			
+			if(idx==10) {
+				idx=2;
 			}
 		}
 		
-		if(check) {
+		sum = sum%11;
+		sum = 11 - sum;
+		
+		if(sum>9) { //if문 안써도 상관은 없다.
+			sum = sum%10;
+		}
+		
+		int result = Integer.parseInt(String.valueOf(num.charAt(num.length()-1)));
+		
+		if(sum==result) {
 			System.out.println("주민번호입니다.");
 		} else {
 			System.out.println("주민번호 아닙니다.");
 		}
+		
+		
+		
 
 	}
 
