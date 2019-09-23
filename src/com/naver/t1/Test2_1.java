@@ -27,8 +27,7 @@ public class Test2_1 {
 			
 			count[i]=m*j;
 			j++;
-			
-			if(i==)
+			//?
 		}
 
 		for(int i=8;i<12;i++) {
